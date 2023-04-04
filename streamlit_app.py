@@ -21,7 +21,6 @@ authenticator = stauth.Authenticate(
 name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status:
-
     authenticator.logout("Logout", "main")
 
     st.title("App Diabetes")
@@ -44,7 +43,6 @@ if authentication_status:
     retinopatia_diabetica = st.checkbox("Retinopatía diabética", False)
     enfermedad_renal = st.checkbox("Enfermedad renal", False)
 
-
     st.subheader("Pauta de medicación actual")
     col1, col2 = st.columns(2)
     metformin = col1.checkbox("Metformina", False)
@@ -59,7 +57,6 @@ if authentication_status:
 
     st.subheader("Extra")
 
-
     if st.button("Calcular valor HbA1c objetivo"):
         comorbilities = Comorbilities(
             enfermedad_cardiovascular,
@@ -68,7 +65,15 @@ if authentication_status:
             enfermedad_renal,
         )
         pharmacy = Pharmacy(
-            metformin, isglt2, arglp1, iddp4, su, pio, repa, basal_insuline, rapid_insuline
+            metformin,
+            isglt2,
+            arglp1,
+            iddp4,
+            su,
+            pio,
+            repa,
+            basal_insuline,
+            rapid_insuline,
         )
 
         hba1c_target = compute_target_hba1c(age, years_of_evolution, comorbilities)
@@ -81,7 +86,6 @@ if authentication_status:
     # Reportar: valor de hemoglobina objetivo
 
     # Luego, en funcion de la diferencia entre real y objetivo, recomendar pauta de tratamiento.
-
 
     # Preguntar las comorbilidades precisas después.
     # """

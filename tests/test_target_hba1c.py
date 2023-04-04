@@ -8,6 +8,7 @@ from app_diabetes.target_hba1c import compute_target_hba1c
 def no_comorbility() -> Comorbilities:
     return Comorbilities(False, False, False, False)
 
+
 @pytest.fixture
 def some_comorbility() -> Comorbilities:
     return Comorbilities(True, False, False, False)
@@ -28,7 +29,7 @@ def some_comorbility() -> Comorbilities:
         (Age.OVER_76, YearsOfEvolution.LESS_THAN_15, "some_comorbility", 8.5),
         (Age.OVER_76, YearsOfEvolution.AT_LEAST_15, "no_comorbility", 8.5),
         (Age.OVER_76, YearsOfEvolution.AT_LEAST_15, "some_comorbility", 8.5),
-    ]
+    ],
 )
 def test_target_hba1c(age, years_of_evolution, comorbilities, expected_value, request):
     cm = request.getfixturevalue(comorbilities)

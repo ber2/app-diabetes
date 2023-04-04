@@ -1,4 +1,4 @@
-name: Run black
+name: Run Mypy
 
 on:
   - pull_request

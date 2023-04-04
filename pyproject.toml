@@ -19,6 +19,7 @@ black = "^23.1.0"
 mypy = "^1.1.1"
 bandit = "^1.7.5"
 types-pyyaml = "^6.0.12.9"
+pytest-cov = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core"]
